@@ -4,7 +4,7 @@
 /*******************************************************************
                 Topological Sort
 
-    1.  how to perform a topological sort in a Directed Acyclic Graph (DAG) 
+    1.  How to perform a topological sort in a Directed Acyclic Graph (DAG) 
         using Breadth-First Search (BFS)
 
     2.  How to detect cycles in a Directed Graph using Topological Sort
@@ -23,6 +23,15 @@ Topological sort is a way of ordering the nodes of a Directed Acyclic Graph (DAG
 The term “topological” reflects the idea that we are arranging nodes based on the direction of edges in a DAG.
 
 This type of sorting is particularly useful in scenarios where certain tasks must be completed before others, such as task scheduling, course prerequisite chains, and resolving dependencies in build systems (e.g., [makefile](../../C/HowToMake/README.md)).
+
+| Initial | 
+|:-------------:|
+| <img src="diagrams/TopologicalSort_0001.png" width="80%" height="80%"> |  
+
+**Output**
+```sh
+Course 0, Course 1, Course 3, Course 4, Course 2, Course 7, Course 5, Course 6, Course 8
+```
 
 ### Topological sort based on BFS
 

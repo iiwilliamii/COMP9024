@@ -100,6 +100,10 @@ The global variable 'counter' is shared among the two threads, with an initial v
 
 **What value could the 'counter' have when both Thread1 and Thread2 finish their tasks?**
 
+Note that the CPU may be preempted at any time, as other threads are running on the same system.
+
+In other words, a thread may lose access to the CPU at any moment.
+
 ```sh
 // counter = counter + 1                           // counter = counter + 1
 
@@ -209,6 +213,11 @@ counter == 8000000
 ### Random Number Generators
 
 Programs that use random number generators produce different results on different runs due to the inherent unpredictability of the random values. 
+
+| Flip a coin | Roll a dice | 
+|:-------------:|:-------------:|
+| <img src="diagrams/FlipACoin.png" width="80%" height="80%"> |<img src="diagrams/RollADice.png" width="80%" height="80%"> |
+
 
 ```C
 #include <stdlib.h>     // srandom(), random()
@@ -349,9 +358,9 @@ For more information about the memory hierarchy in computer systems, please refe
 
 In this project, we will how to explore a maze with non-randomised and randomised algorithms.
 
-Exploring a maze using a [data stack](../../Stacks/Stack_LL/README.md) is like following a trail of markers: 
+Exploring a maze using a [data stack](../../Stacks/Stack_LL/README.md) is like following a trail of markers.
 
-it helps you backtrack and navigate through twists and turns efficiently. 
+<!-- it helps you backtrack and navigate through twists and turns efficiently. -->
 
 Imagine you're inside a maze, armed with a stack of markers. 
 
@@ -700,6 +709,16 @@ static void PushAdjacentPosition(struct Stack *pStack, int r, int c, PositionSta
     }
 }
 
+
+// see https://en.wikipedia.org/wiki/Arrows_(Unicode_block)
+static char *rightArrowUnicodeStr = "\u2192";
+static char *downArrowUnicodeStr = "\u2193";
+static char *leftArrowUnicodeStr = "\u2190";
+static char *upArrowUnicodeStr = "\u2191";
+
+// https://www.fileformat.info/info/unicode/char/1f5fc/index.htm
+static char *towerUnicodeStr = "\U0001F5FC";
+
 /*
   State transition:
 
@@ -766,7 +785,11 @@ void ExploreMaze(void) {
 
 ### 5.4 Sidetracks: Loops in programming
 
-When implementing loops in programming, we can use three common techniques: while/for statements, recursive functions, and event handlers.
+When implementing loops in programming, we can use three common techniques: 
+
+- while/for statements 
+- recursive functions
+- event handlers
 
 #### 5.4.1 For statement
 
